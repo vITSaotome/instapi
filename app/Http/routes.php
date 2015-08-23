@@ -11,6 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'IndexController@index');
+Route::get('/getUserId/{userName}', 'IndexController@getUserId');
+Route::get('/getUserInfo/{userName}', 'IndexController@getUserInfo');
+Route::get('/getUserPhotos/{userName}/{next_max_id?}', 'IndexController@getUserPhotos');
+Route::get('/getPhotoDetails/{photoId}/{likes?}', 'IndexController@getPhotoDetails');
+Route::get('/getPhotoDetails/{photoId}/{comments?}', 'IndexController@getPhotoDetails');
+
