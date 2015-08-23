@@ -83,9 +83,20 @@ class IndexController extends Controller {
         dd($result);
     }
 
-    public function getPhotoDetails($photo_id, $likes=0, $comments=0){
-        $url = 'https://api.instagram.com/v1/media/' . $photo_id . '?client_id='
+    public function getPhotoDetails($photo_id, $details){
+        $base_url = 'https://api.instagram.com/v1/media/';
+        $url = $base_url . $photo_id . '?client_id='
             . $this->client_id . '&response_type=json';
+
+        if($details != null){
+            if($details == 'comments'){
+                $url = $base_url . $photo_id . '/comments?client_id='
+                . $this->client_id . '&response_type=json';
+            }elseif($details == 'likes'){
+                $url = $base_url . $photo_id . '/likes?client_id='
+                    . $this->client_id . '&response_type=json';
+            }
+        }
 
         $res = file_get_contents($url);
         $res_arr = json_decode($res, 1);
