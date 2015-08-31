@@ -12,9 +12,7 @@
 */
 
 Route::get('/', 'IndexController@index');
-Route::get('/getUserId/{userName}', 'IndexController@getUserId');
-Route::get('/getUserInfo/{userName}', 'IndexController@getUserInfo');
-Route::get('/getUserPhotos/{userName}/{next_max_id?}', 'IndexController@getUserPhotos');
-Route::get('/getPhotoDetails/{photoId}', 'IndexController@getPhotoDetails');
-Route::get('/getPhotoDetails/{photoId}/{details?}', 'IndexController@getPhotoDetails');
+Route::get('/users/{name}', 'IndexController@getUserInfo');
+Route::get('/users/{user}/media/{max_id?}', 'IndexController@getUserMedia');
+Route::get('/media/{id}/{details?}', 'IndexController@getMediaDetails');
 
