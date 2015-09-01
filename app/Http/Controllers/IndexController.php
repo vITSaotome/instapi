@@ -140,7 +140,7 @@ class IndexController extends Controller {
                     }
                     $res_arr[$key]['daily_stats'][date('Y-m-d', $val['created_time'])]['comments']++;
                 }
-                foreach($res_arr[$key]['day_stats'] as $k=>$val){
+                foreach($res_arr[$key]['daily_stats'] as $k=>$val){
                     $res_arr[$key]['daily_stats'][$k]['likes'] = round($res_arr[$key]['likes_count'] * $res_arr[$key]['daily_stats'][$k]['comments'] / $res_arr[$key]['comments_count']);
                 }
                 unset($res_arr[$key]['data']);
